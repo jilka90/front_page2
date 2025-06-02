@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Figma Store</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            overflow-x: hidden;
+        }
+
+        .navbar-custom {
+            background-color: #ffc107;
+        }
+
+        .btn-outline-dark {
+            border-radius: 999px;
+            padding: 0.375rem 1rem;
+            font-weight: 600;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: calc(1rem + 0.5vw);
+        }
+
+        .cart-count {
+            margin-left: 0.25rem;
+            font-weight: bold;
+        }
+
+        .icon-btn {
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+        }
+
+        .stock-ticker {
+            font-size: 15px;
+            overflow: hidden;
+            padding-block: 8px;
+            user-select: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .stock-ticker ul {
+            flex-shrink: 0;
+            min-width: 100%;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2rem;
+            animation: scroll 15s linear infinite;
+        }
+
+        @keyframes scroll {
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+        .featured-img {
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: cover;
+        }
+
+        .svg-cutout {
+            width: 100%;
+            height: auto;
+        }
+
+        .category-card {
+            transition: transform 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .category-label {
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .footer-logo {
+            padding: 0.5rem 1rem;
+            background-color: #28a745;
+            color: #000;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 767.98px) {
+
+            h1,
+            h2 {
+                font-size: calc(1.3rem + 1.5vw);
+            }
+
+            h5.center-text {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+
+            .navbar-brand {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+        <div class="container-fluid d-flex flex-wrap justify-content-between align-items-center py-2">
+            <div class="d-flex align-items-center gap-2  order-lg-1">
+                <button class="btn btn-outline-dark btn-sm d-none d-sm-block"
+                    onclick="window.location.href='category_page.html'">SHOP</button>
+                <button class="btn btn-outline-dark btn-sm d-none d-sm-block">ABOUT</button>
+                <button class="icon-btn">
+                    <i class="bi bi-search"></i>
+                </button>
+            </div>
+            <a class="navbar-brand mx-auto text-center order-lg-2 mb-0 mb-lg-0" href="#">THE FIGMA STORE</a>
+            <div class="d-flex align-items-center gap-2 order-2 order-lg-3">
+                <i class="bi bi-person" role="button" onclick="window.location.href='form.html'"></i>
+                <button class="btn btn-outline-dark btn-sm d-flex align-items-center"
+                    onclick="window.location.href='trail.html'">
+                    CART <span class="cart-count">6</span>
+                </button>
+            </div>
+            <div class="w-100 d-flex d-lg-none  justify-content-center mt-2">
+                <button class="btn btn-outline-dark btn-sm mx-1">SHOP</button>
+                <button class="btn btn-outline-dark btn-sm mx-1">ABOUT</button>
+            </div>
+        </div>
+    </nav>
+    <section class="bg-warning border-bottom py-4">
+        <div class="container">
+             <div class="container-fluid mt-4">
+    <div class="row gx-3 gy-4">
+      <div class="col-md-2 clip-oval img-container">
+        <img src="images/iamge5.webp" class="img-fit" />
+      </div>
+      <div class="col-md-4 img-container">
+        <img src="images/iamge5.webp" class="img-fit" style="clip-path: polygon(0 0, 85% 0, 100% 50%, 85% 100%, 0 100%);" />
+      </div>
+      <div class="col-md-4 clip-oval img-container">
+        <img src="images/iamge5.webp" class="img-fit" />
+      </div>
+      <div class="col-md-2 clip-oval img-container">
+        <img src="images/iamge5.webp" class="img-fit" />
+      </div>
+    </div>
+  </div>
+            <!-- <div class="row g-4 j">
+                <div class="col-12 col-md-6 col-lg-3">
+                    <img src="images/image14.webp" class="rounded-circle" height="460" width="300"
+                        style=" border: 3PX SOLID black; ">
+                </div>
+            
+            <div class="col-12 col-sm-6 col-md-3 d-flex justify-content-center">
+                <img src="images/image14.webp" class="rounded-circle ml-5" height="460" width="480"
+                    style=" border: 3PX SOLID black; ">
+            </div>
+            <div class="col-12 col-sm-6 col-md-3 d-flex">
+                <svg class="svg-cutout" width="550" height="250" ; viewBox="0 0 310 610" fill="none"
+                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    style="stroke: black; stroke-width:3;padding: 10px;">
+                    <defs>
+                        <pattern id="9ec3ec12-3d86-4315-b660-2cbee1cedb72" patternUnits="objectBoundingBox" width="1"
+                            height="1">
+                            <image
+                                href="//store.figma.com/cdn/shop/files/20240619_Figma_Store_4924_1000x.jpg?v=1719490511"
+                                x="0" y="0" width="100%" height="100%" class="pattern-image"
+                                preserveAspectRatio="xMidYMid slice"></image>
+                        </pattern>
+                    </defs>
+                    <path
+                        d="M302.279 498.312L300 493.256L297.721 498.312C266.868 566.765 220.337 609.5 169 609.5C123.66 609.5 82.0782 576.193 51.6874 521.166C21.3451 466.227 2.5 390.159 2.5 306C2.5 221.841 21.3451 145.773 51.6874 90.834C82.0782 35.8068 123.66 2.5 169 2.5C220.337 2.5 266.868 45.2351 297.721 113.688L300 118.744L302.279 113.688C333.132 45.2351 379.663 2.5 431 2.5C482.337 2.5 528.868 45.2351 559.721 113.688L562 118.744L564.279 113.688C595.132 45.2351 641.663 2.5 693 2.5C744.337 2.5 790.868 45.2351 821.721 113.688L824 118.744L826.279 113.688C857.132 45.2351 903.663 2.5 955 2.5C1000.34 2.5 1041.92 35.8068 1072.31 90.834C1102.65 145.773 1121.5 221.841 1121.5 306C1121.5 390.159 1102.65 466.227 1072.31 521.166C1041.92 576.193 1000.34 609.5 955 609.5C903.663 609.5 857.132 566.765 826.279 498.312L824 493.256L821.721 498.312C790.868 566.765 744.337 609.5 693 609.5C641.663 609.5 595.132 566.765 564.279 498.312L562 493.256L559.721 498.312C528.868 566.765 482.337 609.5 431 609.5C379.663 609.5 333.132 566.765 302.279 498.312Z"
+                        fill="url(#9ec3ec12-3d86-4315-b660-2cbee1cedb72)"></path>
+                </svg>
+            </div>
+        </div> -->
+        </div>
+    </section>
+    <div class="container my-5">
+        <h5 class="fs-5 align-center p-3 center-text">
+            FIGMA'S <img src="images/icon1.svg" alt="icon" class="mx-1">
+            COLLECTION <img src="images/icon2.svg" alt="icon" class="mx-1">
+            OF LAYERS <img src="images/icon3.svg" alt="icon" class="mx-1"><br class="d-md-none">
+            AND <img src="images/icon4.svg" alt="icon" class="mx-1">
+            COMPONENTS <img src="images/icon5.svg" alt="icon" class="mx-1">
+            FOR YOU <img src="images/icon6.svg" alt="icon" class="mx-1"><br class="d-md-none">
+            AND <img src="images/icon7.svg" alt="icon" class="mx-1">
+            YOUR <img src="images/icon8.svg" alt="icon" class="mx-1">
+            FRIENDS
+        </h5>
+    </div>
+    <div class="container-fluid p-3 bg-dark">
+        <div class="container py-3">
+            <div class="row">
+                <div class="col-12">
+                    <div class="p-4 p-md-5 rounded-5 bg-secondary text-dark">
+                        <div class="row align-items-center">
+                            <div class="col-md-6 mb-4 mb-md-0">
+                                <h2 class="fw-bold">FIGMA X WORK <br>LOUDER</h2>
+                                <h6 class="my-3">Meet the limited edition Figma Creator Micro Keyboard</h6>
+                                <button type="button" class="btn btn-dark btn-lg rounded-5 px-4"
+                                    onclick="window.location.href='trail.html'">Product</button>
+                            </div>
+                            <div class="col-md-6 text-center">
+                                <img src="images/iamge5.webp" alt="Figma Creator Micro Keyboard" class="img-fluid"
+                                    style="max-height: 250px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container my-5">
+        <div class="row justify-content-center g-4">
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="category-card text-center">
+                    <img src="images/image11.webp" alt="Women's category" class="img-fluid rounded-4 mb-2">
+                    <div class="category-label text-uppercase">CATEGORY</div>
+                    <h6 class="fw-bold">WOMENS</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="category-card text-center">
+                    <img src="images/image15.webp" alt="Accessories category" class="img-fluid rounded-4 mb-2">
+                    <div class="category-label text-uppercase">CATEGORY</div>
+                    <h6 class="fw-bold">ACCESSORIES</h6>
+                </div>
+            </div>
+            <div class="col-6 col-md-4 col-lg-3">
+                <div class="category-card text-center">
+                    <img src="images/image9.webp" alt="Men's category" class="img-fluid rounded-4 mb-2">
+                    <div class="category-label text-uppercase">CATEGORY</div>
+                    <h6 class="fw-bold">MENS</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-warning">
+        <div class="container">
+            <div class="row">
+                <!-- Logo section -->
+                <div class="container d-flex m-auto justify-content-center">
+
+                    <div class="col-4 ">
+                        <div class="row-3 mx-5">
+                            <div
+                                class="col-1 d-flex justify-content-center bg-success align-items-center mt-5 mx-4 px-4 ">
+                                <h6 class="text-black ">THE </h6>
+                            </div>
+                            <div class="row-3">
+                                <div class="col-1 d-flex justify-content-center bg-success align-items-center  px-5">
+                                    <h6 class="text-black ">FIGMA </h6>
+                                </div>
+                            </div>
+                            <div class="row-3">
+                                <div class="col-1 d-flex justify-content-center bg-success align-items-center px-5">
+                                    <h6 class="text-black ">STORE</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <!-- Links section -->
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-md-6 mb-4 mb-md-0">
+                            <h2 class="h4 fw-bold">OBJECTS<br>THAT INSPIRE</h2>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="footer-links">
+                                <li>FAQ</li>
+                                <li>Contact us</li>
+                                <li>Privacy Policy</li>
+                                <li>Terms of Service</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-12 fs-5">
+                            <p class="mb-0">FIGMA <i class="bi bi-arrow-up-right"></i>TWITTER INSTAGRAM YOUTUBE
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="stock-ticker bg-warning">
+            <ul>
+                <span>FIGMA <svg width="23" height="18" viewBox="0 0 23 18" fill="none">
+                        <path
+                            d="M0.662109 17.3626V6.21266L6.23707 0.637695L15.9933 6.21266L22.962 0.637695V11.7876L15.9933 17.3626L6.23707 11.7876L0.662109 17.3626Z"
+                            fill="white"></path>
+                    </svg></span>
+                <span class="mx-3">MARVELOUSLY <svg width="23" height="24" viewBox="0 0 23 24" fill="none">
+                        <circle cx="11.687" cy="12" r="11.1499" fill="white"></circle>
+                    </svg></span>
+                <span class="mx-3">CONSIDERED <svg width="19" height="19" viewBox="0 0 19 19" fill="none">
+                        <path
+                            d="M0.199219 0.637695H9.25853C14.2619 0.637695 18.3179 4.69369 18.3179 9.69701C18.3179 14.7003 14.2619 18.7563 9.25853 18.7563C4.25521 18.7563 0.199219 14.7003 0.199219 9.69701V0.637695Z"
+                            fill="white"></path>
+                    </svg></span>
+                <span class="mx-3">COLLECTION <svg width="23" height="20" viewBox="0 0 23 20" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M0.286133 0.243652H11.4361H22.586C15.6173 5.66375 15.6173 14.3359 22.586 19.756H11.4361H0.286133C7.25484 14.3359 7.25484 5.66375 0.286133 0.243652Z"
+                            fill="white"></path>
+                    </svg></span>
+                <span class="mx-3">OF <svg width="23" height="24" viewBox="0 0 23 24" fill="none">
+                        <rect x="11.3115" y="0.850098" width="15.7684" height="15.7684"
+                            transform="rotate(45 11.3115 0.850098)" fill="white"></rect>
+                    </svg></span>
+                <span class="mx-3">OBJECTS</span>
+            </ul>
+            <ul aria-hidden="true">
+                <span>FIGMA <svg width="23" height="18" viewBox="0 0 23 18" fill="none">
+                        <path
+                            d="M0.662109 17.3626V6.21266L6.23707 0.637695L15.9933 6.21266L22.962 0.637695V11.7876L15.9933 17.3626L6.23707 11.7876L0.662109 17.3626Z"
+                            fill="white"></path>
+                    </svg></span>
+                <span class="mx-3">MARVELOUSLY <svg width="23" height="24" viewBox="0 0 23 24" fill="none">
+                        <circle cx="11.687" cy="12" r="11.1499" fill="white"></circle>
+                    </svg></span>
+                <span class="mx-3">CONSIDERED <svg width="19" height="19" viewBox="0 0 19 19" fill="none">
+                        <path
+                            d="M0.199219 0.637695H9.25853C14.2619 0.637695 18.3179 4.69369 18.3179 9.69701C18.3179 14.7003 14.2619 18.7563 9.25853 18.7563C4.25521 18.7563 0.199219 14.7003 0.199219 9.69701V0.637695Z"
+                            fill="white"></path>
+                    </svg></span>
+                <span class="mx-3">COLLECTION <svg width="23" height="20" viewBox="0 0 23 20" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M0.286133 0.243652H11.4361H22.586C15.6173 5.66375 15.6173 14.3359 22.586 19.756H11.4361H0.286133C7.25484 14.3359 7.25484 5.66375 0.286133 0.243652Z"
+                            fill="white"></path>
+                    </svg></span>
+                <span class="mx-3">OF <svg width="23" height="24" viewBox="0 0 23 24" fill="none">
+                        <rect x="11.3115" y="0.850098" width="15.7684" height="15.7684"
+                            transform="rotate(45 11.3115 0.850098)" fill="white"></rect>
+                    </svg></span>
+                <span class="mx-3">OBJECTS</span>
+            </ul>
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
